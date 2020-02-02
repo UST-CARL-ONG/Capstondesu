@@ -13,13 +13,7 @@
     <title>Organissembly</title>
 </head>
 
-<% 
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	if(session.getAttribute("username")==null)
-	{
-		response.sendRedirect("index.jsp");
-	}
-%>
+
 <body>
     <!-- ============================================================== -->
     <!-- main wrapper -->

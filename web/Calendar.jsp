@@ -7,13 +7,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Schedule Template | CodyHouse</title>
 </head>
-<% 
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	if(session.getAttribute("username")==null)
-	{
-		response.sendRedirect("index.jsp");
-	}
-%>
+
 <body>
   <header class="cd-main-header text-center flex flex-column flex-center">
     <p class="margin-top-md margin-bottom-xl"> <a class="cd-article-link" href="Announcements.jsp">Home</a></p>
