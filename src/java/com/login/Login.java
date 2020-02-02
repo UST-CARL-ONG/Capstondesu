@@ -66,7 +66,8 @@ public class Login extends HttpServlet {
                 dbPassword = rs.getString("password");
             }
             if (name.equals(dbName)&&password.equals(dbPassword)){
-                out.println("You have successfully logged in bitch");
+                RequestDispatcher rd = request.getRequestDispatcher("Announcements.jsp");
+                rd.include(request, response);
             }
             else{
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
