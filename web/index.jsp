@@ -64,8 +64,12 @@
           </button>
         </div>
 </form>
+ <form class="container-login100-form-btn m-t-32" action="Register.jsp" method="post">
+          <button class="login100-form-btn">
+            Register
+          </button>
+        </form>   
 
-      </form>
     </div>
   </div>
 </div>
