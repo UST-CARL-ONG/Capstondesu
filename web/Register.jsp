@@ -15,36 +15,21 @@
 </head>
 
 <body>
+    
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
+    <div class="container-login100" style="background-image: url('LoginCSS/images/ustlogin.jpg');"></div>
        <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="Announcements.jsp">Organissembly</a>
+                <a class="navbar-brand" href="Announcements.jsp">Register</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
-
-
-
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">Carl Ong</h5>
-                                </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                               <form action="Logout"> <input type="submit" value="Logout"></form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                
             </nav>
         </div>
         <!-- ============================================================== -->
@@ -53,40 +38,7 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                Menu
-                            </li>
-                            <li class="nav-item">
-                                <a href="Announcements.jsp"  ><i class="fa fa-fw fa-rocket"></i>Announcements</a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="AddEvent.jsp"  ><i class="fa fa-fw fa-rocket"></i>Events</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a href="Calendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="Product.jsp"  ><i class="fa fa-fw fa-rocket"></i>Merchandise</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="Applicants.jsp"  ><i class="fa fa-fw fa-rocket"></i>Applicants</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+       
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
