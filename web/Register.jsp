@@ -74,7 +74,7 @@
                                             <h4 class="mb-0">Account Information</h4>
                                         </div>
                                         <div class="card-body">
-                                            <form class="needs-validation" novalidate="">
+                                            <form class="needs-validation" novalidate=""  action="Registration" method="post">
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="firstName">First name</label>
@@ -94,16 +94,16 @@
                                                 
                                                 <div class="mb-3">
                                                     <label for="email">Email <span class="text-muted"></span></label>
-                                                    <input type="email" class="form-control" id="email">
+                                                    <input type="email" class="form-control" id="email" name="uname" placeholder="username">
                                                     <div class="invalid-feedback">
                                                         Please enter a valid email address for shipping updates.
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="address">Password</label>
-                                                    <input type="text" class="form-control" id="address" required="">
+                                                    <input type="password" class="form-control" id="email" name="password" placeholder="password" id="address" required="">
                                                     <div class="invalid-feedback">
-                                                        Please enter your shipping address.
+                                                        Please enter your shipping them properly.
                                                     </div>
                                                 </div>
                                                 
