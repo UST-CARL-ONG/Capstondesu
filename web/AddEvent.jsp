@@ -73,7 +73,7 @@
                                 <a href="AddEvent.jsp"  ><i class="fa fa-fw fa-rocket"></i>Events</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="Calendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
+                                <a href="pages/Calendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
                             </li>
                             <li class="nav-item">
                                 <a href="Product.jsp"  ><i class="fa fa-fw fa-rocket"></i>Merchandise</a>

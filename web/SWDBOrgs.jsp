@@ -76,7 +76,7 @@
 								</li>
 
 								<li class="nav-item ">
-									<a href="SWDBCalendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
+									<a href="pages/Calendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
 								</li>
 
 
@@ -108,7 +108,7 @@
 	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 	                        <div class="page-header">
 	                            <h3 class="mb-2">Organizations </h3>
-								<a href="#" class="btn btn-secondary">Create/Delete Organization</a>
+								<a href="#" class="btn btn-secondary">Create Organization</a>
 
 	                        </div>
 	                    </div>
@@ -172,6 +172,117 @@
 	                                    </div>
 	                                </div>
 	                            </div>
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                
+                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="imahe/SITE.jpg" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">SITE</h3>
+	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
+	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
+	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
+                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                                
 	                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
 	                                <div class="card campaign-card text-center">
 	                                    <div class="card-body">

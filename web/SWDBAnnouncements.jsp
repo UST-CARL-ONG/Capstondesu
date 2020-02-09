@@ -72,7 +72,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a href="SWDBCalendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
+                            <a href="pages/Calendar.jsp"  ><i class="fa fa-fw fa-rocket"></i>Calendar</a>
                         </li>
 
 
