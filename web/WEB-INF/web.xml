@@ -16,6 +16,57 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>crud.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>crud.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping><servlet>
+        <servlet-name>EditServlet2</servlet-name>
+        <servlet-class>crud.EditServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditServlet2</servlet-name>
+        <url-pattern>/EditServlet2</url-pattern>
+    </servlet-mapping><servlet>
+        <servlet-name>Emp</servlet-name>
+        <servlet-class>crud.Emp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Emp</servlet-name>
+        <url-pattern>/Emp</url-pattern>
+    </servlet-mapping><servlet>
+        <servlet-name>EmpDao</servlet-name>
+        <servlet-class>crud.EmpDao</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpDao</servlet-name>
+        <url-pattern>/EmpDao</url-pattern>
+    </servlet-mapping><servlet>
+        <servlet-name>SaveServlet</servlet-name>
+        <servlet-class>crud.SaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveServlet</servlet-name>
+        <url-pattern>/SaveServlet</url-pattern>
+    </servlet-mapping><servlet>
+        <servlet-name>ViewServlet</servlet-name>
+        <servlet-class>crud.ViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewServlet</servlet-name>
+        <url-pattern>/ViewServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -9,13 +9,13 @@ $(function() {
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay,listWeek'
             },
-            defaultDate: '2018-03-12',
+            defaultDate: '2020-2-11',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             eventLimit: true, // allow "more" link when too many events
             events: [{
                     title: 'All Day Event',
-                    start: '2018-03-01',
+                    start: '2020-02-011',
                 },
                 {
                     title: 'Long Event',

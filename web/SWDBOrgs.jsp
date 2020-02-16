@@ -166,7 +166,7 @@
 	                                            <p class="mb-3">We are technology enthusiasts *badum tsh.</p>
 	                                            <p class="mb-1">Members:<span class="text-dark font-medium ml-2">-1</span></p>
 	                                            <p>Officers: <span class="text-dark font-medium ml-2">10</span></p>
-                                                <a href="#" class="btn btn-secondary">Enable/Disable</a>
+                                                <a href="pages/ViewOrgSiteSDB.jsp" class="btn btn-secondary">Enable/Disable</a>
 
 	                                        </div>
 	                                    </div>
