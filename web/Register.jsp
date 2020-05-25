@@ -11,7 +11,7 @@
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <title>Organissembly</title>
+    <title>Account Registration - Organissembly</title>
 </head>
 
 <body>
@@ -71,21 +71,28 @@
                                 <div class="col-md-8">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h4 class="mb-0">Account Information</h4>
+                                            <h4 class="mb-0">User Account Information</h4>
                                         </div>
                                         <div class="card-body">
                                             <form class="needs-validation" novalidate=""  action="Registration" method="post">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="firstName">First name</label>
-                                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                                                    <div class="col-md-4 mb-3">
+                                                        <label for="firstName">First Name</label>
+                                                        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="">
                                                         <div class="invalid-feedback">
                                                             Valid first name is required.
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="lastName">Last name</label>
-                                                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                                                    <div class="col-md-4 mb-3">
+                                                        <label for="middleName">Middle Name</label>
+                                                        <input type="text" class="form-control" name="middleName" id="middleName" placeholder="" value="" required="">
+                                                        <div class="invalid-feedback">
+                                                            Valid middle name is required.
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 mb-3">
+                                                        <label for="lastName">Last Name</label>
+                                                        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
                                                         <div class="invalid-feedback">
                                                             Valid last name is required.
                                                         </div>
@@ -94,16 +101,16 @@
                                                 
                                                 <div class="mb-3">
                                                     <label for="email">Email <span class="text-muted"></span></label>
-                                                    <input type="email" class="form-control" id="email" name="uname" placeholder="username">
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="juandelacruz@ust-ics.mygbiz.com">
                                                     <div class="invalid-feedback">
-                                                        Please enter a valid email address for shipping updates.
+                                                        Please enter a valid email address.
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="address">Password</label>
-                                                    <input type="password" class="form-control" id="email" name="password" placeholder="password" id="address" required="">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="password" required="">
                                                     <div class="invalid-feedback">
-                                                        Please enter your shipping them properly.
+                                                        Password must be valid.
                                                     </div>
                                                 </div>
                                                 

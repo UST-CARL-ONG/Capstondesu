@@ -54,14 +54,32 @@ public class Registration extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String name = request.getParameter("uname");
-            String password = request.getParameter("password"); 
-            String sql = "insert into registration(name,password) values(?,?)";
+            String email = request.getParameter("email");
+            
+            String firstName = request.getParameter("firstName");
+            String middleName = request.getParameter("middleName");
+            String lastName = request.getParameter("lastName");
+            
+            String password = request.getParameter("password");
+            
+            /*
+            password must be encrypted from here
+            
+            password = password.encrypt();
+            
+            */
+            
+            String sql = "insert into useraccounts(user_email, user_firstName, user_middleName, user_lastName,"
+                    + "user_password) values(?,?,?,?,?)";
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/portal?zeroDateTimeBehavior=convertToNull", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/organissembly"
+                    + "?zeroDateTimeBehavior=convertToNull", "root", "");
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, password);
+            ps.setString(1, email);
+            ps.setString(2, firstName);
+            ps.setString(3, middleName);
+            ps.setString(4, lastName);
+            ps.setString(5, password);
             ps.executeUpdate();
             PrintWriter out = response.getWriter();
             out.println("You have successfully registered");
