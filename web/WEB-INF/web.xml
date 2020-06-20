@@ -7,11 +7,19 @@
         <servlet-name>Registration</servlet-name>
         <servlet-class>controller.Registration</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Save</servlet-name>
+        <servlet-class>organization.Save</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>View</servlet-name>
+        <servlet-class>organization.View</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Registration</url-pattern>
     </servlet-mapping>
-        <servlet>
+    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>com.login.Login</servlet-class>
     </servlet>
@@ -19,7 +27,7 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-     <servlet>
+    <servlet>
         <servlet-name>DeleteServlet</servlet-name>
         <servlet-class>crud.DeleteServlet</servlet-class>
     </servlet>
@@ -34,41 +42,54 @@
     <servlet-mapping>
         <servlet-name>EditServlet</servlet-name>
         <url-pattern>/EditServlet</url-pattern>
-    </servlet-mapping><servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>EditServlet2</servlet-name>
         <servlet-class>crud.EditServlet2</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditServlet2</servlet-name>
         <url-pattern>/EditServlet2</url-pattern>
-    </servlet-mapping><servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>Emp</servlet-name>
         <servlet-class>crud.Emp</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Emp</servlet-name>
         <url-pattern>/Emp</url-pattern>
-    </servlet-mapping><servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>EmpDao</servlet-name>
         <servlet-class>crud.EmpDao</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmpDao</servlet-name>
         <url-pattern>/EmpDao</url-pattern>
-    </servlet-mapping><servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>SaveServlet</servlet-name>
         <servlet-class>crud.SaveServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SaveServlet</servlet-name>
         <url-pattern>/SaveServlet</url-pattern>
-    </servlet-mapping><servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>ViewServlet</servlet-name>
         <servlet-class>crud.ViewServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewServlet</servlet-name>
         <url-pattern>/ViewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Save</servlet-name>
+        <url-pattern>/Save</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>View</servlet-name>
+        <url-pattern>/View</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

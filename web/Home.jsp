@@ -20,7 +20,7 @@
         <% while(rs.next()){
             if(rs.getString(4).equals("swdc")){
             %>
-            <a href="/createOrg.jsp">Create Organization</a>
+            <a href="View">Create Organization</a>
             <%}
             }%>
         <br>
