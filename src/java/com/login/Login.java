@@ -116,11 +116,12 @@ public class Login extends HttpServlet {
                 
                 session.setAttribute("email", dbEmail);
                 session.setAttribute("name", fullName);
+                session.setAttribute("userId", dbUserId);
                 session.setAttribute("recordsRole", rs);
-                session.setAttribute("recordsOrg", rs2);
+                request.setAttribute("recordsOrg", rs2);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
-                rd.include(request, response);
+                rd.forward(request, response);
             }
             else{
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -128,9 +129,9 @@ public class Login extends HttpServlet {
             }
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         processRequest(request, response);
     }

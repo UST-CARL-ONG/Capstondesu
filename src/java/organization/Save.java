@@ -11,7 +11,9 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.websocket.Session;
 
 /**
  *
@@ -100,19 +103,19 @@ public class Save extends HttpServlet {
             String fileName = extractFileName(part);
             String savePath = "C:\\Users\\JoshuaDC\\Documents\\NetBeansProjects\\Capstondesu\\web\\orgImages" + File.separator + fileName;
             File fileSaveDir = new File(savePath);
-            int orgAdviserID = Integer.parseInt(request.getParameter("orgAdviser"));
-            int orgPresidentID = Integer.parseInt(request.getParameter("orgPresident"));
-            int orgVicePresidentID = Integer.parseInt(request.getParameter("orgVicePresident"));
-            int orgSecretaryID = Integer.parseInt(request.getParameter("orgSecretary"));
-            int orgProID = Integer.parseInt(request.getParameter("orgPro"));
+            String orgAdviserID = request.getParameter("orgAdviser");
+            String orgPresidentID = request.getParameter("orgPresident");
+            String orgVicePresidentID = request.getParameter("orgVicePresident");
+            String orgSecretaryID = request.getParameter("orgSecretary");
+            String orgProID = request.getParameter("orgPro");
             
             part.write(savePath + File.separator);
          
             String insertOrgSql = "insert into organizations "
                     + "(org_name, org_imageDir, org_description, "
-                    + "org_vision, org_mission, org_adviserId, "
-                    + "org_presidentId, org_vicePresidentId, org_secretaryId, "
-                    + "org_proId)"
+                    + "org_vision, org_mission, org_adviserName, "
+                    + "org_presidentName, org_vicePresidentName, org_secretaryName, "
+                    + "org_proName)"
                     + "values(?,?,?,?,?,?,?,?,?,?)";
             
             PreparedStatement ps = conn.prepareStatement(insertOrgSql);
@@ -122,15 +125,35 @@ public class Save extends HttpServlet {
             ps.setString(3, orgDescription);
             ps.setString(4, orgVision);
             ps.setString(5, orgMission);
-            ps.setInt(6, orgAdviserID);
-            ps.setInt(7, orgPresidentID);
-            ps.setInt(8, orgVicePresidentID);
-            ps.setInt(9, orgSecretaryID);
-            ps.setInt(10, orgProID);
+            ps.setString(6, orgAdviserID);
+            ps.setString(7, orgPresidentID);
+            ps.setString(8, orgVicePresidentID);
+            ps.setString(9, orgSecretaryID);
+            ps.setString(10, orgProID);
             
             ps.executeUpdate();
             
-            response.sendRedirect("Home.jsp");
+            String orgSql = "select organizations.org_id, organizations.org_name, organizations.org_description, "
+                        + "organizations.org_isEnabled "
+                        + "FROM organizations";
+            
+//            String roleSql = "SELECT useraccounts.user_id, useraccounts.user_lastName, members.member_id, "
+//                        + "members.member_role, organizations.org_id, organizations.org_name FROM "
+//                        + "((useraccounts INNER JOIN members ON useraccounts.user_id = members.member_userId) "
+//                        + "LEFT JOIN organizations ON members.member_orgId = organizations.org_id) "
+//                        + "WHERE useraccounts.user_id = ?";
+                
+            Statement stmt = conn.createStatement();
+//            PreparedStatement ps2 = conn.prepareStatement(roleSql);
+                
+            ResultSet rs = stmt.executeQuery(orgSql);
+//            ResultSet rs2 = ps2.executeQuery(roleSql)
+            
+            request.setAttribute("recordsOrg", rs);
+//            request.setAttribute("recordsRole", rs2);
+            
+            request.getRequestDispatcher("Home.jsp").forward(request, response);
+            
             
         }catch(ClassNotFoundException e){
             Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, e);

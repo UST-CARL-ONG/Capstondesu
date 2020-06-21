@@ -12,8 +12,8 @@
         <servlet-class>organization.Save</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>View</servlet-name>
-        <servlet-class>organization.View</servlet-class>
+        <servlet-name>CreateOrgServlet</servlet-name>
+        <servlet-class>organization.CreateOrgServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
@@ -88,7 +88,7 @@
         <url-pattern>/Save</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>View</servlet-name>
+        <servlet-name>CreateOrgServlet</servlet-name>
         <url-pattern>/View</url-pattern>
     </servlet-mapping>
     <session-config>

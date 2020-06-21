@@ -5,9 +5,9 @@
  */
 package organization;
 
-import controller.Registration;
+//import controller.Registration;
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author JoshuaDC
  */
-public class View extends HttpServlet {
+public class CreateOrgServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,15 +49,17 @@ public class View extends HttpServlet {
                         + "useraccounts.user_lastName "
                         + "from useraccounts";
                 
+                
+                
                 ResultSet rs = stmt.executeQuery(viewUserSql);
                 
                 request.setAttribute("userRecords", rs);
                 
                 request.getRequestDispatcher("CreateOrg.jsp").forward(request, response);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CreateOrgServlet.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CreateOrgServlet.class.getName()).log(Level.SEVERE, null, ex);
             }   
         }
 

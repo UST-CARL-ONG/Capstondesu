@@ -21,31 +21,9 @@
             if(rs.getString(4).equals("swdc")){
             %>
             <a href="View">Create Organization</a>
-            <%}
-            }%>
-        <br>
-        <table border="1" align="center">
-		<tr>
-			<th>User ID</th>
-			<th>User Last Name</th>
-                        <th>Member ID</th>
-                        <th>Member Role</th>
-                        <th>Organization ID</th>
-                        <th>Organization Name</th>
-		</tr>
-		<%  rs.beforeFirst();
-                    while (rs.next()) { %>
-			<tr>
-				<td><%=rs.getString(1) %></td>
-				<td><%=rs.getString(2) %></td>
-                                <td><%=rs.getString(3) %></td>
-                                <td><%=rs.getString(4) %></td>
-                                <td><%=rs.getString(5) %></td>
-                                <td><%=rs.getString(6) %></td>
-			</tr>	
-		<%	}
-		%>
-	</table>
+            <% }
+             } %>
+        <!--insert roles table code here--> 
         <br>
         <table border="1" align="center">
 		<tr>
@@ -55,7 +33,7 @@
                         <th>Organization Enabled?</th>
 		</tr>
 		<%
-                        ResultSet rs2 = (ResultSet)session.getAttribute("recordsOrg");
+                        ResultSet rs2 = (ResultSet)request.getAttribute("recordsOrg");
 			while (rs2.next()) { %>
 			<tr>
 				<td><%=rs2.getString(1) %></td>
