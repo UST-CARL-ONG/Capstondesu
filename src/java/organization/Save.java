@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import javax.websocket.Session;
+//import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -62,7 +62,7 @@ public class Save extends HttpServlet {
 //        }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -111,6 +111,7 @@ public class Save extends HttpServlet {
             
             part.write(savePath + File.separator);
          
+            /* SQL to insert inputs from CreateOrg.jsp to Organizations table resulting to a new organization.*/
             String insertOrgSql = "insert into organizations "
                     + "(org_name, org_imageDir, org_description, "
                     + "org_vision, org_mission, org_adviserName, "
@@ -130,30 +131,54 @@ public class Save extends HttpServlet {
             ps.setString(8, orgVicePresidentID);
             ps.setString(9, orgSecretaryID);
             ps.setString(10, orgProID);
-            
             ps.executeUpdate();
             
+            /* SQL to assign the roles from the selected users to their respective organization. 
+            Inserts into Members table. */
+            String rolesToMemberSql = "insert into members (member_userId, member_orgId, member_isActive, member_role)"
+                    + "values "
+                    + "(?, ?, ?, ?),"
+                    + "(?, ?, ?, ?),"
+                    + "(?, ?, ?, ?),"
+                    + "(?, ?, ?, ?),"
+                    + "(?, ?, ?, ?)";
+                    
+            
+            PreparedStatement ps2 = conn.prepareStatement(rolesToMemberSql);
+            
+            /* SQL to select the ID of the recently made organization. */
+            String orgIdSql = "select organizations.org_id from organizations order by org_id desc limit 1";
+            
+            Statement stmt2 = conn.createStatement();
+            
+            ResultSet rs2 = stmt2.executeQuery(orgIdSql);
+            rs2.next();
+            
+            ps2.setString(1, orgAdviserID);
+            ps2.setString(5, orgPresidentID);
+            ps2.setString(9, orgVicePresidentID);
+            ps2.setString(13, orgSecretaryID);
+            ps2.setString(17, orgProID);
+            
+            for(int counter = 1 ;counter <= 20; counter = counter + 4){
+                ps2.setInt(counter + 1, rs2.getInt(1));
+                ps2.setInt(counter + 2, 0);
+                ps2.setString(counter + 3, roleAssign(counter));
+            }
+            
+            ps2.executeUpdate();
+            
+            /* Selects all organizations and displays to Home.jsp */
             String orgSql = "select organizations.org_id, organizations.org_name, organizations.org_description, "
                         + "organizations.org_isEnabled "
                         + "FROM organizations";
             
-//            String roleSql = "SELECT useraccounts.user_id, useraccounts.user_lastName, members.member_id, "
-//                        + "members.member_role, organizations.org_id, organizations.org_name FROM "
-//                        + "((useraccounts INNER JOIN members ON useraccounts.user_id = members.member_userId) "
-//                        + "LEFT JOIN organizations ON members.member_orgId = organizations.org_id) "
-//                        + "WHERE useraccounts.user_id = ?";
-                
             Statement stmt = conn.createStatement();
-//            PreparedStatement ps2 = conn.prepareStatement(roleSql);
                 
             ResultSet rs = stmt.executeQuery(orgSql);
-//            ResultSet rs2 = ps2.executeQuery(roleSql)
             
             request.setAttribute("recordsOrg", rs);
-//            request.setAttribute("recordsRole", rs2);
-            
             request.getRequestDispatcher("Home.jsp").forward(request, response);
-            
             
         }catch(ClassNotFoundException e){
             Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, e);
@@ -174,6 +199,20 @@ public class Save extends HttpServlet {
             }
         }
         return "";
+    }
+    
+    private String roleAssign(int counter){
+        if(counter < 5){
+            return "adviser";
+        }else if(counter < 9){
+            return "president";
+        }else if(counter < 13){
+            return "vicepresident";
+        }else if(counter< 17){
+            return "secretary";
+        }else{
+            return "pro";
+        }
     }
 
     /**

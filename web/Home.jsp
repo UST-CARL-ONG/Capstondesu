@@ -16,7 +16,8 @@
         <h1>Hello <%= session.getAttribute("name") %>!</h1>
         <h2><%= session.getAttribute("email") %> </h2>
         <br>
-        <% ResultSet rs = (ResultSet)session.getAttribute("recordsRole"); %>
+        <% ResultSet rs = (ResultSet)session.getAttribute("recordsRole");
+           session.setAttribute("user_id", session.getAttribute("user_id")); %>
         <% while(rs.next()){
             if(rs.getString(4).equals("swdc")){
             %>
@@ -39,7 +40,7 @@
 				<td><%=rs2.getString(1) %></td>
 				<td><%=rs2.getString(2) %></td>
                                 <td><%=rs2.getString(3) %></td>
-                                <td><%=rs2.getString(4) %></td>
+                                <td><%=rs2.getString(4) %></t d>
 			</tr>	
 		<%	}
 		%>

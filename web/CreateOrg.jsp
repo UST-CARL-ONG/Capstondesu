@@ -48,11 +48,11 @@
                 while(rs.next()){ %>
                 <tr>
                     <td><%= "" + rs.getString("user_lastName") + ", " + rs.getString("user_firstName") + " " + rs.getString("user_middleName") %></td>
-                    <td><input type="radio" class="form-control" name="orgAdviser" value="<%= rs.getString("user_lastName") + rs.getString("user_firstName") %>"></td>
-                    <td><input type="radio" class="form-control" name="orgPresident" value="<%= rs.getString("user_lastName") + rs.getString("user_firstName") %>"></td>
-                    <td><input type="radio" class="form-control" name="orgVicePresident" value="<%= rs.getString("user_lastName") + rs.getString("user_firstName") %>"></td>
-                    <td><input type="radio" class="form-control" name="orgSecretary" value="<%= rs.getString("user_lastName") + rs.getString("user_firstName") %>"></td>
-                    <td><input type="radio" class="form-control" name="orgPro" value="<%= rs.getString("user_lastName") + rs.getString("user_firstName") %>"></td>
+                    <td><input type="radio" class="form-control" name="orgAdviser" value="<%= rs.getInt("user_id") %>"></td>
+                    <td><input type="radio" class="form-control" name="orgPresident" value="<%= rs.getInt("user_id") %>"></td>
+                    <td><input type="radio" class="form-control" name="orgVicePresident" value="<%= rs.getInt("user_id") %>"></td>
+                    <td><input type="radio" class="form-control" name="orgSecretary" value="<%= rs.getInt("user_id") %>"></td>
+                    <td><input type="radio" class="form-control" name="orgPro" value="<%= rs.getInt("user_id") %>"></td>
                 </tr>
                 <% } %>
                 </table>
