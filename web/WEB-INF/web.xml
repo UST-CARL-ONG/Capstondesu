@@ -15,6 +15,22 @@
         <servlet-name>CreateOrgServlet</servlet-name>
         <servlet-class>organization.CreateOrgServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnableOrg</servlet-name>
+        <servlet-class>organization.EnableOrg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisableOrg</servlet-name>
+        <servlet-class>organization.DisableOrg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterOrg</servlet-name>
+        <servlet-class>member.RegisterOrg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewOrgPage</servlet-name>
+        <servlet-class>organization.ViewOrgPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Registration</url-pattern>
@@ -90,6 +106,22 @@
     <servlet-mapping>
         <servlet-name>CreateOrgServlet</servlet-name>
         <url-pattern>/View</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnableOrg</servlet-name>
+        <url-pattern>/EnableOrg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisableOrg</servlet-name>
+        <url-pattern>/DisableOrg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterOrg</servlet-name>
+        <url-pattern>/RegisterOrg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewOrgPage</servlet-name>
+        <url-pattern>/ViewOrgPage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -95,18 +95,18 @@ public class Login extends HttpServlet {
                     fullName = dbFirstName +" "+ middleInitial +". "+dbLastName;
                 }
                 
-                String roleSql = "SELECT useraccounts.user_id, useraccounts.user_lastName, members.member_id, "
-                        + "members.member_role, organizations.org_id, organizations.org_name FROM "
-                        + "((useraccounts INNER JOIN members ON useraccounts.user_id = members.member_userId) "
-                        + "LEFT JOIN organizations ON members.member_orgId = organizations.org_id) "
-                        + "WHERE useraccounts.user_id = ?";
+//                String roleSql = "SELECT useraccounts.user_id, useraccounts.user_lastName, members.member_id, "
+//                        + "members.member_role, organizations.org_id, organizations.org_name FROM "
+//                        + "((useraccounts INNER JOIN members ON useraccounts.user_id = members.member_userId) "
+//                        + "LEFT JOIN organizations ON members.member_orgId = organizations.org_id) "
+//                        + "WHERE useraccounts.user_id = ?";
+//                
+//                ps = conn.prepareStatement(roleSql);
+//                
+//                ps.setString(1, dbUserId);
+//                rs = ps.executeQuery();
                 
-                ps = conn.prepareStatement(roleSql);
-                
-                ps.setString(1, dbUserId);
-                rs = ps.executeQuery();
-                
-                String orgSql = "select organizations.org_id, organizations.org_name, organizations.org_description, "
+                String orgSql = "select organizations.org_id, organizations.org_name, organizations.org_imageDir, "
                         + "organizations.org_isEnabled "
                         + "FROM organizations";
                 
@@ -114,10 +114,10 @@ public class Login extends HttpServlet {
                 
                 ResultSet rs2 = stmt.executeQuery(orgSql);
                 
-                session.setAttribute("email", dbEmail);
-                session.setAttribute("name", fullName);
-                session.setAttribute("userId", dbUserId);
-                session.setAttribute("recordsRole", rs);
+                session.setAttribute("user_email", dbEmail);
+                session.setAttribute("user_name", fullName);
+                session.setAttribute("user_id", dbUserId);
+//                session.setAttribute("recordsRole", rs);
                 request.setAttribute("recordsOrg", rs2);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");

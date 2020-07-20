@@ -109,6 +109,7 @@ public class Save extends HttpServlet {
             String orgSecretaryID = request.getParameter("orgSecretary");
             String orgProID = request.getParameter("orgPro");
             
+            /* Saves file to orgImages folder */
             part.write(savePath + File.separator);
          
             /* SQL to insert inputs from CreateOrg.jsp to Organizations table resulting to a new organization.*/
@@ -120,6 +121,13 @@ public class Save extends HttpServlet {
                     + "values(?,?,?,?,?,?,?,?,?,?)";
             
             PreparedStatement ps = conn.prepareStatement(insertOrgSql);
+            
+            String selectUserNamesSql = "SELECT "
+                    + "users.user_firstName, "
+                    + "users.user_middleName, "
+                    + "users.user_lastName "
+                    + "FROM useraccounts "
+                    + "WHERE user_id IN (?, ?, ?, ?, ?)";
             
             ps.setString(1, orgName);
             ps.setString(2, savePath);
@@ -162,14 +170,14 @@ public class Save extends HttpServlet {
             
             for(int counter = 1 ;counter <= 20; counter = counter + 4){
                 ps2.setInt(counter + 1, rs2.getInt(1));
-                ps2.setInt(counter + 2, 0);
+                ps2.setInt(counter + 2, 1);
                 ps2.setString(counter + 3, roleAssign(counter));
             }
             
             ps2.executeUpdate();
             
             /* Selects all organizations and displays to Home.jsp */
-            String orgSql = "select organizations.org_id, organizations.org_name, organizations.org_description, "
+            String orgSql = "select organizations.org_id, organizations.org_name, organizations.org_imageDir, "
                         + "organizations.org_isEnabled "
                         + "FROM organizations";
             

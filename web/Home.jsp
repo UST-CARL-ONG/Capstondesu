@@ -13,37 +13,53 @@
         <title>Home - Organissembly</title>
     </head>
     <body>
-        <h1>Hello <%= session.getAttribute("name") %>!</h1>
-        <h2><%= session.getAttribute("email") %> </h2>
+        <h1>Hello <%= session.getAttribute("user_name") %>!</h1>
+        <h2><%= session.getAttribute("user_email") %> </h2>
         <br>
-        <% ResultSet rs = (ResultSet)session.getAttribute("recordsRole");
-           session.setAttribute("user_id", session.getAttribute("user_id")); %>
-        <% while(rs.next()){
-            if(rs.getString(4).equals("swdc")){
-            %>
             <a href="View">Create Organization</a>
-            <% }
-             } %>
-        <!--insert roles table code here--> 
         <br>
         <table border="1" align="center">
 		<tr>
-			<th>Organization ID</th>
+			<th>Organization Logo</th>
 			<th>Organization Name</th>
-                        <th>Organization Description</th>
-                        <th>Organization Enabled?</th>
+                        <th>Actions</th>
 		</tr>
-		<%
-                        ResultSet rs2 = (ResultSet)request.getAttribute("recordsOrg");
+<!--            org id
+                org name
+                org imagedir
+                org isenabled-->
+                
+		<% ResultSet rs2 = (ResultSet)request.getAttribute("recordsOrg");
 			while (rs2.next()) { %>
 			<tr>
-				<td><%=rs2.getString(1) %></td>
-				<td><%=rs2.getString(2) %></td>
-                                <td><%=rs2.getString(3) %></td>
-                                <td><%=rs2.getString(4) %></t d>
+                            <td><img src="orgImages/<%= rs2.getString(3) %>" height="100px" width="100px"></td>
+                                <td><%=rs2.getString(2) %></td>
+                                <td>ID: <%= rs2.getString(1) %>
+                                    <% if(rs2.getInt(4) == 1){ %> 
+                                        <form method="POST" action="RegisterOrg">
+                                            <input type="hidden" name="org_id" value="<%= rs2.getString(1) %>">
+                                            <input type="hidden" name="user_id" value="<%= session.getAttribute("user_id") %>">
+                                            <input type="submit" value="Register">
+                                        </form>
+                                        <form method="POST" action="ViewOrgPage">
+                                            <input type="hidden" name="org_id" value="<%= rs2.getString(1) %>">
+                                            <input type="submit" value="Enter">
+                                        </form>
+                                        <form method="POST" action="DisableOrg">
+                                            <input type="hidden" name="org_id" value="<%= rs2.getString(1) %>">
+                                            <input type="submit" value="Disable">
+                                        </form>
+                                        
+                                <% } else { %>
+                                <button disabled="">Register</button>
+                                <form method="POST" action="EnableOrg">
+                                    <input type="hidden" name="org_id" value="<%= rs2.getString(1) %>">
+                                    <input type="submit" value="Enable">
+                                </form>
+                                <% } %>
+                                </td>
 			</tr>	
-		<%	}
-		%>
+		<% } %>
 	</table>
         
         <br>
