@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package organization;
+package member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +23,12 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author JoshuaDC
+ * 
+ * This servlet updates the isActive value of a member in the members table
+ *  in to a value of 1 meaning the member is now active.
  */
-public class ViewOrgPage extends HttpServlet {
+@WebServlet(name = "AcceptMember", urlPatterns = {"/AcceptMember"})
+public class AcceptMember extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +47,10 @@ public class ViewOrgPage extends HttpServlet {
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet ViewOrgPage</title>");            
+//            out.println("<title>Servlet AcceptMember</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet ViewOrgPage at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet AcceptMember at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
@@ -81,37 +86,43 @@ public class ViewOrgPage extends HttpServlet {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/organissembly"
                     + "?zeroDateTimeBehavior=convertToNull", "root", "");
             
+            int member_id = Integer.parseInt(request.getParameter("member_id"));
             int org_id = Integer.parseInt(request.getParameter("org_id"));
             
-            /* Gathers organization info from database according to org_id */
-            String orgInfoSql = "SELECT "
-                    + "organizations.org_name, "
-                    + "organizations.org_description, "
-                    + "organizations.org_vision, "
-                    + "organizations.org_mission, "
-                    + "organizations.org_adviserName, "
-                    + "organizations.org_presidentName, "
-                    + "organizations.org_vicePresidentName, "
-                    + "organizations.org_secretaryName, "
-                    + "organizations.org_proName "
-                    + "FROM organizations "
-                    + "WHERE organizations.org_id = ?";
+            String updateIsActiveSql = "UPDATE members SET member_isActive = 1 WHERE member_id = ?";
             
-            PreparedStatement orgInfoStatement = conn.prepareStatement(orgInfoSql);
+            PreparedStatement isActiveStatement;
             
-            orgInfoStatement.setInt(1, org_id);
+            String selectNewRegistrantsSql = "SELECT "
+                    + "useraccounts.user_lastName, "
+                    + "useraccounts.user_firstName,"
+                    + "members.member_id "
+                    + "FROM useraccounts INNER JOIN members "
+                    + "ON useraccounts.user_id = members.member_userId "
+                    + "WHERE members.member_isActive = 0 AND members.member_orgId = ?";
             
-            ResultSet orgInfoResult = orgInfoStatement.executeQuery();
-                    
-            request.setAttribute("orgInfoResult", orgInfoResult);
+            PreparedStatement newRegistrantsStatement = conn.prepareStatement(selectNewRegistrantsSql);
+            
+            ResultSet newRegistrantsResult;
+            
+            isActiveStatement = conn.prepareStatement(updateIsActiveSql);
+            
+            isActiveStatement.setInt(1, member_id);
+            
+            isActiveStatement.executeUpdate();
+            
+            newRegistrantsStatement.setInt(1, org_id);
+            newRegistrantsResult = newRegistrantsStatement.executeQuery();
+            
+            request.setAttribute("newRegistrantsResult", newRegistrantsResult);
             request.setAttribute("org_id", org_id);
             
-            request.getRequestDispatcher("orgPage.jsp").forward(request, response);
+            request.getRequestDispatcher("orgNewRegistrantsPage.jsp").forward(request, response);
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ViewOrgPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AcceptMember.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ViewOrgPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AcceptMember.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
